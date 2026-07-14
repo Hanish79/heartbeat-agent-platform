@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "gate": "deployment",
+  "title": "Deployment Approval",
+  "status": "PENDING",
+  "decision": null,
+  "approver": {
+    "name": "",
+    "role": "Release / Deployment Authority"
+  },
+  "approved_at": null,
+  "expires_at": null,
+  "scope": "Shipment Validation API demo only",
+  "evidence": [
+    {
+      "id": 1,
+      "name": "Proposal approval is valid",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 2,
+      "name": "Architecture approval is valid",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 3,
+      "name": "Documentation validation passed",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 4,
+      "name": "Traceability validation passed",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 5,
+      "name": "QA plan is complete",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 6,
+      "name": "Security review recommendation is acceptable",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 7,
+      "name": "Local CI passed using act",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 8,
+      "name": "Rollback approach is documented",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 9,
+      "name": "No secrets or restricted data are present",
+      "required": true,
+      "verified": false
+    }
+  ],
+  "conditions": [],
+  "comments": "",
+  "audit": {
+    "created_by": "Heartbeat Agent Platform",
+    "created_at": "2026-07-12",
+    "last_updated_by": "",
+    "last_updated_at": null
+  }
+}

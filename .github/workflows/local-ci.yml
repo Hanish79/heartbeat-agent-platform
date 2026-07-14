@@ -1,0 +1,97 @@
+name: Local CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "fix/**"
+      - "docs/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: local-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deterministic-validation:
+    name: Deterministic validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile automation scripts
+        run: |
+          python -m py_compile \
+            scripts/sync_drive.py \
+            scripts/validate_documents.py \
+            scripts/approval_engine.py \
+            scripts/traceability.py \
+            scripts/pipeline.py \
+            scripts/publish.py \
+            scripts/evidence.py
+
+      - name: Enforce proposal approval
+        run: |
+          python scripts/approval_engine.py \
+            approvals/proposal.json \
+            --expected-gate proposal \
+            --repo-root .
+
+      - name: Enforce architecture approval
+        run: |
+          python scripts/approval_engine.py \
+            approvals/architecture.json \
+            --expected-gate architecture \
+            --repo-root .
+
+      - name: Enforce deployment approval
+        run: |
+          python scripts/approval_engine.py \
+            approvals/deployment.json \
+            --expected-gate deployment \
+            --repo-root .
+
+      - name: Run deterministic pipeline
+        run: |
+          python scripts/pipeline.py \
+            --repo-root . \
+            --report output/pipeline-report.json
+
+      - name: Verify publish remains dry-run
+        run: |
+          python scripts/publish.py \
+            --repo-root . \
+            --approval approvals/deployment.json
+
+      - name: Upload validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-ci-reports
+          path: |
+            output/document-validation.json
+            output/traceability.json
+            output/pipeline-report.json
+            output/publish-report.json
+            evidence/tests.xml
+            evidence/traceability.csv
+            evidence/build.json
+            evidence/security.json
+            evidence/deployment.json
+          if-no-files-found: ignore
+          retention-days: 7

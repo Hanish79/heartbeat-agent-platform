@@ -1,42 +1,21 @@
 {
   "passed": false,
-  "timestamp_utc": "2026-07-12T08:45:06.958747+00:00",
+  "timestamp_utc": "2026-07-12T10:19:49.022791+00:00",
+  "stopped_at": "proposal_approval",
   "stages": [
     {
-      "name": "validate_documents",
+      "name": "proposal_approval",
       "command": [
-        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\validate_documents.py",
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/heartbeat-demo-documentation/scripts/approval_engine.py",
+        "approvals/proposal.json",
+        "--expected-gate",
+        "proposal",
         "--repo-root",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
-      ],
-      "returncode": 0,
-      "stdout": "{\n  \"valid\": true,\n  \"error_count\": 0,\n  \"warning_count\": 0,\n  \"findings\": []\n}",
-      "stderr": ""
-    },
-    {
-      "name": "traceability",
-      "command": [
-        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\traceability.py",
-        "--repo-root",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
-      ],
-      "returncode": 0,
-      "stdout": "{\n  \"valid\": true,\n  \"identifier_count\": 0,\n  \"finding_count\": 0,\n  \"report\": \"C:\\\\Users\\\\Mud!r\\\\.claude\\\\Heartbeat\\\\heartbeat-agent-platform\\\\output\\\\traceability.json\"\n}",
-      "stderr": ""
-    },
-    {
-      "name": "validate_release_approval",
-      "command": [
-        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\approval_engine.py",
-        "approvals/release-approval.md",
-        "--repo-root",
-        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
+        "/mnt/data/heartbeat-demo-documentation"
       ],
       "returncode": 1,
-      "stdout": "{\n  \"file\": \"C:\\\\Users\\\\Mud!r\\\\.claude\\\\Heartbeat\\\\heartbeat-agent-platform\\\\approvals\\\\release-approval.md\",\n  \"valid\": false,\n  \"status\": \"PENDING\",\n  \"reviewer\": \"Date:\",\n  \"date\": \"## Checklist\",\n  \"unchecked_items\": [\n    \"Scope reviewed\",\n    \"Evidence reviewed\",\n    \"Risks reviewed\",\n    \"Security considered\",\n    \"Decision recorded\"\n  ],\n  \"errors\": [\n    \"Approval status does not authorize progression: PENDING\",\n    \"Date is missing or is not ISO format YYYY-MM-DD.\",\n    \"5 checklist item(s) remain unchecked.\"\n  ]\n}",
+      "stdout": "{\n  \"file\": \"/mnt/data/heartbeat-demo-documentation/approvals/proposal.json\",\n  \"valid\": false,\n  \"gate\": \"proposal\",\n  \"status\": \"PENDING\",\n  \"approver_name\": null,\n  \"approver_role\": \"Business Owner / Technology Lead\",\n  \"approved_at\": null,\n  \"expires_at\": null,\n  \"unverified_evidence\": [\n    \"Business objective is clear\",\n    \"Scope is limited to Shipment Validation API\",\n    \"Requirements BR-001 through BR-006 are reviewed\",\n    \"Acceptance criteria AC-001 through AC-004 are reviewed\",\n    \"Risks and dependencies are documented\",\n    \"No second demo use case is introduced\"\n  ],\n  \"errors\": [\n    \"Gate is not approved: PENDING.\",\n    \"Approver name is missing.\",\n    \"approved_at is missing or invalid ISO-8601.\",\n    \"6 required evidence item(s) are not verified.\"\n  ]\n}",
       "stderr": ""
     }
   ]

@@ -15,7 +15,9 @@ This directory is the single source of truth for the demo.
 | [06 Development](./06%20Development/README.md) | Local setup, coding, prompting, testing, and quality rules |
 | [07 Operations](./07%20Operations/README.md) | Runtime, monitoring, incidents, runbooks, and recovery |
 | [08 Security](./08%20Security/README.md) | Access, secrets, AI risks, data handling, and controls |
-| [09 Examples](./09%20Examples/README.md) | End-to-end demo examples and sample payloads |
+| [09 Examples](./09%20Examples/README.md) | Shipment Validation API demo and sample payloads |
+| [10 Evidence](./10%20Evidence/README.md) | Executive evidence generated on every pipeline run |
+| [11 MCP](./11%20MCP/README.md) | Google Drive MCP integration replacing Drive Desktop |
 
 ## Documentation Rules
 

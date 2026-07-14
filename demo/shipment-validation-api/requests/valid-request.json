@@ -1,0 +1,8 @@
+{
+  "customerAccount": "123456",
+  "originCountry": "JO",
+  "destinationCountry": "AE",
+  "weight": 2.5,
+  "productType": "EXPRESS",
+  "correlationId": "shipment-demo-001"
+}

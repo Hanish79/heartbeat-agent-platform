@@ -1,0 +1,16 @@
+README.md
+docs/00 Vision/README.md
+docs/01 Architecture/README.md
+docs/02 ADLC/README.md
+docs/03 Repository/README.md
+docs/04 Governance/ADR-Template.md
+docs/04 Governance/README.md
+docs/05 Human Approval/Plan-Approval-Template.md
+docs/05 Human Approval/README.md
+docs/05 Human Approval/Release-Approval-Template.md
+docs/06 Development/README.md
+docs/07 Operations/README.md
+docs/08 Security/README.md
+docs/09 Examples/README.md
+docs/09 Examples/shipment-validation-requirement.md
+docs/README.md

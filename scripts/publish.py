@@ -77,7 +77,7 @@ def run_git(repo_root: Path, command: list[str], execute: bool) -> dict[str, obj
 def main() -> int:
     parser = argparse.ArgumentParser(description="Publish approved demo outputs.")
     parser.add_argument("--repo-root", help="Repository root.")
-    parser.add_argument("--approval", default="approvals/release-approval.md")
+    parser.add_argument("--approval", default="approvals/deployment.json")
     parser.add_argument("--source", default="output")
     parser.add_argument("--approved-dir", default="approved")
     parser.add_argument("--drive-root", help="Mounted Drive root. Approved files go to 04 Approved Outputs.")

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "gate": "architecture",
+  "title": "Architecture Approval",
+  "status": "PENDING",
+  "decision": null,
+  "approver": {
+    "name": "",
+    "role": "Architecture Review Authority"
+  },
+  "approved_at": null,
+  "expires_at": null,
+  "scope": "Shipment Validation API demo only",
+  "evidence": [
+    {
+      "id": 1,
+      "name": "Proposal approval is valid",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 2,
+      "name": "Architecture scope is documented",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 3,
+      "name": "Interfaces and trust boundaries are documented",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 4,
+      "name": "Security review is complete",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 5,
+      "name": "Operational implications are documented",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 6,
+      "name": "Architecture decisions and exceptions are recorded",
+      "required": true,
+      "verified": false
+    }
+  ],
+  "conditions": [],
+  "comments": "",
+  "audit": {
+    "created_by": "Heartbeat Agent Platform",
+    "created_at": "2026-07-12",
+    "last_updated_by": "",
+    "last_updated_at": null
+  }
+}

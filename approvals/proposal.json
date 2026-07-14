@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "gate": "proposal",
+  "title": "Proposal Approval",
+  "status": "PENDING",
+  "decision": null,
+  "approver": {
+    "name": "",
+    "role": "Business Owner / Technology Lead"
+  },
+  "approved_at": null,
+  "expires_at": null,
+  "scope": "Shipment Validation API demo only",
+  "evidence": [
+    {
+      "id": 1,
+      "name": "Business objective is clear",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 2,
+      "name": "Scope is limited to Shipment Validation API",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 3,
+      "name": "Requirements BR-001 through BR-006 are reviewed",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 4,
+      "name": "Acceptance criteria AC-001 through AC-004 are reviewed",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 5,
+      "name": "Risks and dependencies are documented",
+      "required": true,
+      "verified": false
+    },
+    {
+      "id": 6,
+      "name": "No second demo use case is introduced",
+      "required": true,
+      "verified": false
+    }
+  ],
+  "conditions": [],
+  "comments": "",
+  "audit": {
+    "created_by": "Heartbeat Agent Platform",
+    "created_at": "2026-07-12",
+    "last_updated_by": "",
+    "last_updated_at": null
+  }
+}

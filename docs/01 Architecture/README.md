@@ -140,5 +140,5 @@ flowchart TB
 - internet access required for GitHub, Google Drive, and Claude Code
 - GitHub Actions not required
 - Google Drive API integration optional
-- manual file transfer acceptable for Phase 1
+- Google Drive transfer is performed through MCP
 - only approved inputs may enter the workflow

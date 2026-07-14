@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "approval_gate": "deployment",
+  "approval_valid": false,
+  "approval_status": "PENDING",
+  "approved_by": null,
+  "approver_role": "Release / Deployment Authority",
+  "approved_at": null,
+  "expires_at": null,
+  "published": false,
+  "dry_run": true,
+  "target": "local-demo",
+  "local_file_count": 0,
+  "drive_file_count": 0,
+  "generated_at": "2026-07-12T10:19:50.078617+00:00",
+  "errors": [
+    "Gate is not approved: PENDING.",
+    "Approver name is missing.",
+    "approved_at is missing or invalid ISO-8601.",
+    "9 required evidence item(s) are not verified."
+  ]
+}

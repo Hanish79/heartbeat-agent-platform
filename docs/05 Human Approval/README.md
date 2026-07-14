@@ -2,119 +2,151 @@
 
 ## Principle
 
-AI agents may propose, analyse, draft, build, test, and review. Humans remain accountable for business intent, architecture, security, and release.
+Heartbeat governance is enforced through three machine-readable approval gates:
 
-## Approval Flow
-
-```mermaid
-flowchart LR
-    A[Agent Output] --> B[Reviewer]
-    B --> C{Decision}
-    C -- Reject --> D[Comments]
-    D --> A
-    C -- Approve with comments --> E[Minor Corrections]
-    E --> B
-    C -- Approve --> F[Next Stage]
+```text
+Proposal Approval
+        ↓
+Architecture Approval
+        ↓
+Deployment Approval
 ```
 
-## Approval Types
+The deterministic pipeline fails closed until each gate is approved.
 
-| Approval | Required For | Approver |
-|---|---|---|
-| Input Approval | Confirm source is valid | Business Owner |
-| Plan Approval | Authorize design and build | Technology Lead |
-| Architecture Approval | Approve technical direction | Architect |
-| Security Approval | Confirm controls are adequate | Security Reviewer |
-| Code Approval | Accept implementation | Engineering Reviewer |
-| Release Approval | Authorize publish | Release Owner |
-| Business Acceptance | Confirm expected outcome | Business Owner |
+## Approval Files
 
-## Approval Statuses
+```text
+approvals/
+├── proposal.json
+├── architecture.json
+└── deployment.json
+```
 
-Only these statuses are valid:
+## Gate 1: Proposal
+
+Confirms:
+
+- business objective
+- scope
+- requirements
+- acceptance criteria
+- risks
+- dependencies
+- single-demo constraint
+
+Responsible authority:
+
+```text
+Business Owner / Technology Lead
+```
+
+## Gate 2: Architecture
+
+Confirms:
+
+- proposal approval is valid
+- architecture is documented
+- interfaces and trust boundaries are understood
+- security review is complete
+- operational impacts are understood
+- decisions and exceptions are recorded
+
+Responsible authority:
+
+```text
+Architecture Review Authority
+```
+
+## Gate 3: Deployment
+
+Confirms:
+
+- proposal and architecture approvals are valid
+- documentation and traceability checks passed
+- QA and security evidence is complete
+- local CI passed
+- rollback is documented
+- no secrets or restricted data are present
+
+Responsible authority:
+
+```text
+Release / Deployment Authority
+```
+
+## Valid Statuses
 
 ```text
 PENDING
 APPROVED
-APPROVED_WITH_COMMENTS
+APPROVED_WITH_CONDITIONS
 REJECTED
 EXPIRED
 ```
 
-## Plan Approval Template
+Only these statuses allow progression:
 
-```markdown
-# Plan Approval
-
-Status: PENDING
-Reviewer:
-Date:
-Scope Reference:
-
-## Reviewed Artifacts
-- requirement summary
-- implementation plan
-- acceptance criteria
-- risks and assumptions
-
-## Checklist
-- [ ] Scope is clear
-- [ ] Acceptance criteria are testable
-- [ ] Risks are understood
-- [ ] Architecture impact is acceptable
-- [ ] Security considerations are included
-- [ ] Dependencies are identified
-
-## Decision
-## Comments
+```text
+APPROVED
+APPROVED_WITH_CONDITIONS
 ```
 
-## Release Approval Template
+Conditional approval must include at least one explicit condition.
 
-```markdown
-# Release Approval
+## Required Approval Data
 
-Status: PENDING
-Reviewer:
-Date:
-Version:
+Every approval must include:
 
-## Evidence
-- [ ] Tests passed
-- [ ] Code review completed
-- [ ] Security review completed
-- [ ] Documentation updated
-- [ ] Rollback method documented
-- [ ] No secrets committed
+- gate
+- status
+- approver name
+- approver role
+- approval timestamp
+- scope
+- evidence checklist
+- decision
+- audit metadata
 
-## Decision
-## Comments
+## Pipeline Behavior
+
+```mermaid
+flowchart LR
+    A[Proposal Gate] -->|Approved| B[Architecture Gate]
+    A -->|Missing/Pending/Rejected| X[STOP]
+    B -->|Approved| C[Deployment Gate]
+    B -->|Missing/Pending/Rejected| X
+    C -->|Approved| D[Validation and Publish]
+    C -->|Missing/Pending/Rejected| X
 ```
 
-## Enforcement Rule
+## Approval Example
 
-A script or agent must stop when:
-- approval file does not exist
-- status is not recognized
-- status is `PENDING`
-- status is `REJECTED`
-- reviewer is blank
-- date is blank
-- required evidence is incomplete
+```json
+{
+  "gate": "proposal",
+  "status": "APPROVED",
+  "decision": "Proceed",
+  "approver": {
+    "name": "Named Human Approver",
+    "role": "Technology Lead"
+  },
+  "approved_at": "2026-07-12T12:00:00+03:00",
+  "evidence": [
+    {
+      "id": 1,
+      "name": "Scope reviewed",
+      "required": true,
+      "verified": true
+    }
+  ]
+}
+```
 
 ## Separation of Duties
 
-Where practical:
-- author and approver should be different people
-- security reviewer should not approve their own implementation
-- release owner should verify evidence rather than rely on agent statements
-
-## Emergency Change
-
-Emergency changes still require:
-- named owner
-- reason
-- impact
-- minimal testing
-- security check
-- after-the-fact review within one business day
+- an agent cannot approve a gate
+- an author should not approve their own artifact
+- architecture approval is separate from proposal approval
+- deployment approval requires evidence, not verbal confirmation
+- approvals are never inferred from successful automation

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "google-drive": {
+      "type": "stdio",
+      "command": "${GOOGLE_DRIVE_MCP_COMMAND}",
+      "args": [
+        "${GOOGLE_DRIVE_MCP_ARG_1}"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}",
+        "GOOGLE_DRIVE_FOLDER_ID": "${GOOGLE_DRIVE_FOLDER_ID}"
+      }
+    }
+  }
+}

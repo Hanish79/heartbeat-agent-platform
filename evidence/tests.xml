@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="heartbeat-demo" tests="1" failures="1" errors="0" skipped="0" timestamp="2026-07-12T10:19:49.022791+00:00">
+  <properties>
+    <property name="pipeline_passed" value="false" />
+  </properties>
+  <testcase classname="heartbeat.pipeline" name="proposal_approval" time="0">
+    <failure message="Stage failed with return code 1" type="PipelineStageFailure">{
+  "file": "/mnt/data/heartbeat-demo-documentation/approvals/proposal.json",
+  "valid": false,
+  "gate": "proposal",
+  "status": "PENDING",
+  "approver_name": null,
+  "approver_role": "Business Owner / Technology Lead",
+  "approved_at": null,
+  "expires_at": null,
+  "unverified_evidence": [
+    "Business objective is clear",
+    "Scope is limited to Shipment Validation API",
+    "Requirements BR-001 through BR-006 are reviewed",
+    "Acceptance criteria AC-001 through AC-004 are reviewed",
+    "Risks and dependencies are documented",
+    "No second demo use case is introduced"
+  ],
+  "errors": [
+    "Gate is not approved: PENDING.",
+    "Approver name is missing.",
+    "approved_at is missing or invalid ISO-8601.",
+    "6 required evidence item(s) are not verified."
+  ]
+}</failure>
+    <system-out>{
+  "file": "/mnt/data/heartbeat-demo-documentation/approvals/proposal.json",
+  "valid": false,
+  "gate": "proposal",
+  "status": "PENDING",
+  "approver_name": null,
+  "approver_role": "Business Owner / Technology Lead",
+  "approved_at": null,
+  "expires_at": null,
+  "unverified_evidence": [
+    "Business objective is clear",
+    "Scope is limited to Shipment Validation API",
+    "Requirements BR-001 through BR-006 are reviewed",
+    "Acceptance criteria AC-001 through AC-004 are reviewed",
+    "Risks and dependencies are documented",
+    "No second demo use case is introduced"
+  ],
+  "errors": [
+    "Gate is not approved: PENDING.",
+    "Approver name is missing.",
+    "approved_at is missing or invalid ISO-8601.",
+    "6 required evidence item(s) are not verified."
+  ]
+}</system-out>
+  </testcase>
+</testsuite>
