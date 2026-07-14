@@ -1,21 +1,51 @@
 {
   "passed": false,
-  "timestamp_utc": "2026-07-12T10:19:49.022791+00:00",
-  "stopped_at": "proposal_approval",
+  "timestamp_utc": "2026-07-14T08:28:47.632018+00:00",
+  "stopped_at": "deployment_approval",
   "stages": [
     {
       "name": "proposal_approval",
       "command": [
-        "/opt/pyvenv/bin/python",
-        "/mnt/data/heartbeat-demo-documentation/scripts/approval_engine.py",
+        "C:\\Users\\hani\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Heartbeat\\scripts\\approval_engine.py",
         "approvals/proposal.json",
         "--expected-gate",
         "proposal",
         "--repo-root",
-        "/mnt/data/heartbeat-demo-documentation"
+        "C:\\Heartbeat"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"file\": \"C:\\\\Heartbeat\\\\approvals\\\\proposal.json\",\n  \"valid\": true,\n  \"gate\": \"proposal\",\n  \"status\": \"APPROVED\",\n  \"approver_name\": \"Hani Shtayyeh\",\n  \"approver_role\": \"Technology Lead\",\n  \"approved_at\": \"2026-07-14T10:00:00+03:00\",\n  \"expires_at\": null,\n  \"unverified_evidence\": [],\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "architecture_approval",
+      "command": [
+        "C:\\Users\\hani\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Heartbeat\\scripts\\approval_engine.py",
+        "approvals/architecture.json",
+        "--expected-gate",
+        "architecture",
+        "--repo-root",
+        "C:\\Heartbeat"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"file\": \"C:\\\\Heartbeat\\\\approvals\\\\architecture.json\",\n  \"valid\": true,\n  \"gate\": \"architecture\",\n  \"status\": \"APPROVED\",\n  \"approver_name\": \"Hani Shtayyeh\",\n  \"approver_role\": \"Architecture Review Authority\",\n  \"approved_at\": \"2026-07-14T10:00:00+03:00\",\n  \"expires_at\": null,\n  \"unverified_evidence\": [],\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "deployment_approval",
+      "command": [
+        "C:\\Users\\hani\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Heartbeat\\scripts\\approval_engine.py",
+        "approvals/deployment.json",
+        "--expected-gate",
+        "deployment",
+        "--repo-root",
+        "C:\\Heartbeat"
       ],
       "returncode": 1,
-      "stdout": "{\n  \"file\": \"/mnt/data/heartbeat-demo-documentation/approvals/proposal.json\",\n  \"valid\": false,\n  \"gate\": \"proposal\",\n  \"status\": \"PENDING\",\n  \"approver_name\": null,\n  \"approver_role\": \"Business Owner / Technology Lead\",\n  \"approved_at\": null,\n  \"expires_at\": null,\n  \"unverified_evidence\": [\n    \"Business objective is clear\",\n    \"Scope is limited to Shipment Validation API\",\n    \"Requirements BR-001 through BR-006 are reviewed\",\n    \"Acceptance criteria AC-001 through AC-004 are reviewed\",\n    \"Risks and dependencies are documented\",\n    \"No second demo use case is introduced\"\n  ],\n  \"errors\": [\n    \"Gate is not approved: PENDING.\",\n    \"Approver name is missing.\",\n    \"approved_at is missing or invalid ISO-8601.\",\n    \"6 required evidence item(s) are not verified.\"\n  ]\n}",
+      "stdout": "{\n  \"file\": \"C:\\\\Heartbeat\\\\approvals\\\\deployment.json\",\n  \"valid\": false,\n  \"gate\": \"deployment\",\n  \"status\": \"PENDING\",\n  \"approver_name\": null,\n  \"approver_role\": \"Release / Deployment Authority\",\n  \"approved_at\": null,\n  \"expires_at\": null,\n  \"unverified_evidence\": [\n    \"Proposal approval is valid\",\n    \"Architecture approval is valid\",\n    \"Documentation validation passed\",\n    \"Traceability validation passed\",\n    \"QA plan is complete\",\n    \"Security review recommendation is acceptable\",\n    \"Local CI passed using act\",\n    \"Rollback approach is documented\",\n    \"No secrets or restricted data are present\"\n  ],\n  \"errors\": [\n    \"Gate is not approved: PENDING.\",\n    \"Approver name is missing.\",\n    \"approved_at is missing or invalid ISO-8601.\",\n    \"9 required evidence item(s) are not verified.\"\n  ]\n}",
       "stderr": ""
     }
   ]

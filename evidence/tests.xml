@@ -1,55 +1,89 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="heartbeat-demo" tests="1" failures="1" errors="0" skipped="0" timestamp="2026-07-12T10:19:49.022791+00:00">
+<testsuite name="heartbeat-demo" tests="3" failures="1" errors="0" skipped="0" timestamp="2026-07-14T08:28:47.632018+00:00">
   <properties>
     <property name="pipeline_passed" value="false" />
   </properties>
   <testcase classname="heartbeat.pipeline" name="proposal_approval" time="0">
-    <failure message="Stage failed with return code 1" type="PipelineStageFailure">{
-  "file": "/mnt/data/heartbeat-demo-documentation/approvals/proposal.json",
-  "valid": false,
+    <system-out>{
+  "file": "C:\\Heartbeat\\approvals\\proposal.json",
+  "valid": true,
   "gate": "proposal",
+  "status": "APPROVED",
+  "approver_name": "Hani Shtayyeh",
+  "approver_role": "Technology Lead",
+  "approved_at": "2026-07-14T10:00:00+03:00",
+  "expires_at": null,
+  "unverified_evidence": [],
+  "errors": []
+}</system-out>
+  </testcase>
+  <testcase classname="heartbeat.pipeline" name="architecture_approval" time="0">
+    <system-out>{
+  "file": "C:\\Heartbeat\\approvals\\architecture.json",
+  "valid": true,
+  "gate": "architecture",
+  "status": "APPROVED",
+  "approver_name": "Hani Shtayyeh",
+  "approver_role": "Architecture Review Authority",
+  "approved_at": "2026-07-14T10:00:00+03:00",
+  "expires_at": null,
+  "unverified_evidence": [],
+  "errors": []
+}</system-out>
+  </testcase>
+  <testcase classname="heartbeat.pipeline" name="deployment_approval" time="0">
+    <failure message="Stage failed with return code 1" type="PipelineStageFailure">{
+  "file": "C:\\Heartbeat\\approvals\\deployment.json",
+  "valid": false,
+  "gate": "deployment",
   "status": "PENDING",
   "approver_name": null,
-  "approver_role": "Business Owner / Technology Lead",
+  "approver_role": "Release / Deployment Authority",
   "approved_at": null,
   "expires_at": null,
   "unverified_evidence": [
-    "Business objective is clear",
-    "Scope is limited to Shipment Validation API",
-    "Requirements BR-001 through BR-006 are reviewed",
-    "Acceptance criteria AC-001 through AC-004 are reviewed",
-    "Risks and dependencies are documented",
-    "No second demo use case is introduced"
+    "Proposal approval is valid",
+    "Architecture approval is valid",
+    "Documentation validation passed",
+    "Traceability validation passed",
+    "QA plan is complete",
+    "Security review recommendation is acceptable",
+    "Local CI passed using act",
+    "Rollback approach is documented",
+    "No secrets or restricted data are present"
   ],
   "errors": [
     "Gate is not approved: PENDING.",
     "Approver name is missing.",
     "approved_at is missing or invalid ISO-8601.",
-    "6 required evidence item(s) are not verified."
+    "9 required evidence item(s) are not verified."
   ]
 }</failure>
     <system-out>{
-  "file": "/mnt/data/heartbeat-demo-documentation/approvals/proposal.json",
+  "file": "C:\\Heartbeat\\approvals\\deployment.json",
   "valid": false,
-  "gate": "proposal",
+  "gate": "deployment",
   "status": "PENDING",
   "approver_name": null,
-  "approver_role": "Business Owner / Technology Lead",
+  "approver_role": "Release / Deployment Authority",
   "approved_at": null,
   "expires_at": null,
   "unverified_evidence": [
-    "Business objective is clear",
-    "Scope is limited to Shipment Validation API",
-    "Requirements BR-001 through BR-006 are reviewed",
-    "Acceptance criteria AC-001 through AC-004 are reviewed",
-    "Risks and dependencies are documented",
-    "No second demo use case is introduced"
+    "Proposal approval is valid",
+    "Architecture approval is valid",
+    "Documentation validation passed",
+    "Traceability validation passed",
+    "QA plan is complete",
+    "Security review recommendation is acceptable",
+    "Local CI passed using act",
+    "Rollback approach is documented",
+    "No secrets or restricted data are present"
   ],
   "errors": [
     "Gate is not approved: PENDING.",
     "Approver name is missing.",
     "approved_at is missing or invalid ISO-8601.",
-    "6 required evidence item(s) are not verified."
+    "9 required evidence item(s) are not verified."
   ]
 }</system-out>
   </testcase>

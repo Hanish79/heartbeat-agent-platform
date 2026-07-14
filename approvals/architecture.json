@@ -2,13 +2,13 @@
   "schema_version": "1.0",
   "gate": "architecture",
   "title": "Architecture Approval",
-  "status": "PENDING",
-  "decision": null,
+  "status": "APPROVED",
+  "decision": "Proceed with the Shipment Validation API demo",
   "approver": {
-    "name": "",
+    "name": "Hani Shtayyeh",
     "role": "Architecture Review Authority"
   },
-  "approved_at": null,
+  "approved_at": "2026-07-14T10:00:00+03:00",
   "expires_at": null,
   "scope": "Shipment Validation API demo only",
   "evidence": [
@@ -16,37 +16,37 @@
       "id": 1,
       "name": "Proposal approval is valid",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 2,
       "name": "Architecture scope is documented",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 3,
       "name": "Interfaces and trust boundaries are documented",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 4,
       "name": "Security review is complete",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 5,
       "name": "Operational implications are documented",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 6,
       "name": "Architecture decisions and exceptions are recorded",
       "required": true,
-      "verified": false
+      "verified": true
     }
   ],
   "conditions": [],
