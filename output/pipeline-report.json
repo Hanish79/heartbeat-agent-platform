@@ -1,0 +1,43 @@
+{
+  "passed": false,
+  "timestamp_utc": "2026-07-12T08:45:06.958747+00:00",
+  "stages": [
+    {
+      "name": "validate_documents",
+      "command": [
+        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\validate_documents.py",
+        "--repo-root",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"error_count\": 0,\n  \"warning_count\": 0,\n  \"findings\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "traceability",
+      "command": [
+        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\traceability.py",
+        "--repo-root",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"identifier_count\": 0,\n  \"finding_count\": 0,\n  \"report\": \"C:\\\\Users\\\\Mud!r\\\\.claude\\\\Heartbeat\\\\heartbeat-agent-platform\\\\output\\\\traceability.json\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "validate_release_approval",
+      "command": [
+        "C:\\Users\\Mud!r\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform\\scripts\\approval_engine.py",
+        "approvals/release-approval.md",
+        "--repo-root",
+        "C:\\Users\\Mud!r\\.claude\\Heartbeat\\heartbeat-agent-platform"
+      ],
+      "returncode": 1,
+      "stdout": "{\n  \"file\": \"C:\\\\Users\\\\Mud!r\\\\.claude\\\\Heartbeat\\\\heartbeat-agent-platform\\\\approvals\\\\release-approval.md\",\n  \"valid\": false,\n  \"status\": \"PENDING\",\n  \"reviewer\": \"Date:\",\n  \"date\": \"## Checklist\",\n  \"unchecked_items\": [\n    \"Scope reviewed\",\n    \"Evidence reviewed\",\n    \"Risks reviewed\",\n    \"Security considered\",\n    \"Decision recorded\"\n  ],\n  \"errors\": [\n    \"Approval status does not authorize progression: PENDING\",\n    \"Date is missing or is not ISO format YYYY-MM-DD.\",\n    \"5 checklist item(s) remain unchecked.\"\n  ]\n}",
+      "stderr": ""
+    }
+  ]
+}
