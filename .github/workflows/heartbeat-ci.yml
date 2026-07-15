@@ -1,4 +1,4 @@
-name: Heartbeat Governed CI
+name: Local CI
 
 on:
   push:
@@ -7,23 +7,21 @@ on:
       - "feature/**"
       - "fix/**"
       - "docs/**"
-
   pull_request:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: heartbeat-ci-${{ github.ref }}
+  group: local-ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  governed-validation:
-    name: Governance, Validation and Evidence
+  deterministic-validation:
+    name: Deterministic validation
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -36,12 +34,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Display environment
-        run: |
-          python --version
-          git --version
-
-      - name: Compile deterministic scripts
+      - name: Compile automation scripts
         run: |
           python -m py_compile \
             scripts/sync_drive.py \
@@ -73,37 +66,32 @@ jobs:
             --expected-gate deployment \
             --repo-root .
 
-      - name: Run governed pipeline
+      - name: Run deterministic pipeline
         run: |
           python scripts/pipeline.py \
             --repo-root . \
             --report output/pipeline-report.json
 
-      - name: Display executive evidence summary
-        if: always()
+      - name: Verify publish remains dry-run
         run: |
-          echo "===== BUILD EVIDENCE ====="
-          cat evidence/build.json || true
+          python scripts/publish.py \
+            --repo-root . \
+            --approval approvals/deployment.json
 
-          echo "===== SECURITY EVIDENCE ====="
-          cat evidence/security.json || true
-
-          echo "===== DEPLOYMENT EVIDENCE ====="
-          cat evidence/deployment.json || true
-
-      - name: Upload executive evidence
+      - name: Upload validation reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: heartbeat-executive-evidence
+          name: local-ci-reports
           path: |
+            output/document-validation.json
+            output/traceability.json
+            output/pipeline-report.json
+            output/publish-report.json
             evidence/tests.xml
             evidence/traceability.csv
             evidence/build.json
             evidence/security.json
             evidence/deployment.json
-            output/document-validation.json
-            output/traceability.json
-            output/pipeline-report.json
-          if-no-files-found: warn
-          retention-days: 30
+          if-no-files-found: ignore
+          retention-days: 7

@@ -2,13 +2,13 @@
   "schema_version": "1.0",
   "gate": "proposal",
   "title": "Proposal Approval",
-  "status": "PENDING",
-  "decision": null,
+  "status": "APPROVED",
+  "decision": "Proceed with the Shipment Validation API demo",
   "approver": {
-    "name": "",
-    "role": "Business Owner / Technology Lead"
+    "name": "Hani Shtayyeh",
+    "role": "Technology Lead"
   },
-  "approved_at": null,
+  "approved_at": "2026-07-14T10:00:00+03:00",
   "expires_at": null,
   "scope": "Shipment Validation API demo only",
   "evidence": [
@@ -16,37 +16,37 @@
       "id": 1,
       "name": "Business objective is clear",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 2,
       "name": "Scope is limited to Shipment Validation API",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 3,
       "name": "Requirements BR-001 through BR-006 are reviewed",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 4,
       "name": "Acceptance criteria AC-001 through AC-004 are reviewed",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 5,
       "name": "Risks and dependencies are documented",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 6,
       "name": "No second demo use case is introduced",
       "required": true,
-      "verified": false
+      "verified": true
     }
   ],
   "conditions": [],

@@ -1,16 +1,36 @@
 {
   "schema_version": "1.0",
-  "status": "FAILED",
+  "status": "PASSED",
   "pipeline": "Heartbeat deterministic pipeline",
-  "started_at": "2026-07-12T10:19:49.022791+00:00",
-  "completed_at": "2026-07-12T10:19:50.077957+00:00",
-  "result": false,
-  "stopped_at": "proposal_approval",
+  "started_at": "2026-07-15T07:11:45.564544+00:00",
+  "completed_at": "2026-07-15T07:11:45.749532+00:00",
+  "result": true,
+  "stopped_at": null,
   "stages": [
     {
       "name": "proposal_approval",
-      "returncode": 1,
-      "passed": false
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "name": "architecture_approval",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "name": "deployment_approval",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "name": "validate_documents",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "name": "traceability",
+      "returncode": 0,
+      "passed": true
     }
   ]
 }
