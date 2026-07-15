@@ -1,23 +1,18 @@
 {
   "schema_version": "1.0",
-  "status": "BLOCKED",
+  "status": "APPROVED",
   "approval_gate": "deployment",
-  "approval_valid": false,
-  "approval_status": "PENDING",
-  "approved_by": null,
+  "approval_valid": true,
+  "approval_status": "APPROVED",
+  "approved_by": "Hani Shtayyeh",
   "approver_role": "Release / Deployment Authority",
-  "approved_at": null,
+  "approved_at": "2026-07-14T10:00:00+03:00",
   "expires_at": null,
   "published": false,
   "dry_run": true,
   "target": "local-demo",
   "local_file_count": 0,
   "drive_file_count": 0,
-  "generated_at": "2026-07-14T08:28:47.764552+00:00",
-  "errors": [
-    "Gate is not approved: PENDING.",
-    "Approver name is missing.",
-    "approved_at is missing or invalid ISO-8601.",
-    "9 required evidence item(s) are not verified."
-  ]
+  "generated_at": "2026-07-15T06:08:29.192746+00:00",
+  "errors": []
 }

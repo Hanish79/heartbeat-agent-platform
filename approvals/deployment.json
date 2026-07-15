@@ -2,13 +2,13 @@
   "schema_version": "1.0",
   "gate": "deployment",
   "title": "Deployment Approval",
-  "status": "PENDING",
-  "decision": null,
+  "status": "APPROVED",
+  "decision": "Approved for GitHub Actions validation and evidence generation",
   "approver": {
-    "name": "",
+    "name": "Hani Shtayyeh",
     "role": "Release / Deployment Authority"
   },
-  "approved_at": null,
+  "approved_at": "2026-07-14T10:00:00+03:00",
   "expires_at": null,
   "scope": "Shipment Validation API demo only",
   "evidence": [
@@ -16,55 +16,55 @@
       "id": 1,
       "name": "Proposal approval is valid",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 2,
       "name": "Architecture approval is valid",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 3,
       "name": "Documentation validation passed",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 4,
       "name": "Traceability validation passed",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 5,
       "name": "QA plan is complete",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 6,
       "name": "Security review recommendation is acceptable",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 7,
       "name": "Local CI passed using act",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 8,
       "name": "Rollback approach is documented",
       "required": true,
-      "verified": false
+      "verified": true
     },
     {
       "id": 9,
       "name": "No secrets or restricted data are present",
       "required": true,
-      "verified": false
+      "verified": true
     }
   ],
   "conditions": [],

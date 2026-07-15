@@ -1,7 +1,7 @@
 {
-  "passed": false,
-  "timestamp_utc": "2026-07-14T08:28:47.632018+00:00",
-  "stopped_at": "deployment_approval",
+  "passed": true,
+  "timestamp_utc": "2026-07-15T06:08:29.032293+00:00",
+  "stopped_at": null,
   "stages": [
     {
       "name": "proposal_approval",
@@ -44,8 +44,32 @@
         "--repo-root",
         "C:\\Heartbeat"
       ],
-      "returncode": 1,
-      "stdout": "{\n  \"file\": \"C:\\\\Heartbeat\\\\approvals\\\\deployment.json\",\n  \"valid\": false,\n  \"gate\": \"deployment\",\n  \"status\": \"PENDING\",\n  \"approver_name\": null,\n  \"approver_role\": \"Release / Deployment Authority\",\n  \"approved_at\": null,\n  \"expires_at\": null,\n  \"unverified_evidence\": [\n    \"Proposal approval is valid\",\n    \"Architecture approval is valid\",\n    \"Documentation validation passed\",\n    \"Traceability validation passed\",\n    \"QA plan is complete\",\n    \"Security review recommendation is acceptable\",\n    \"Local CI passed using act\",\n    \"Rollback approach is documented\",\n    \"No secrets or restricted data are present\"\n  ],\n  \"errors\": [\n    \"Gate is not approved: PENDING.\",\n    \"Approver name is missing.\",\n    \"approved_at is missing or invalid ISO-8601.\",\n    \"9 required evidence item(s) are not verified.\"\n  ]\n}",
+      "returncode": 0,
+      "stdout": "{\n  \"file\": \"C:\\\\Heartbeat\\\\approvals\\\\deployment.json\",\n  \"valid\": true,\n  \"gate\": \"deployment\",\n  \"status\": \"APPROVED\",\n  \"approver_name\": \"Hani Shtayyeh\",\n  \"approver_role\": \"Release / Deployment Authority\",\n  \"approved_at\": \"2026-07-14T10:00:00+03:00\",\n  \"expires_at\": null,\n  \"unverified_evidence\": [],\n  \"errors\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "validate_documents",
+      "command": [
+        "C:\\Users\\hani\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Heartbeat\\scripts\\validate_documents.py",
+        "--repo-root",
+        "C:\\Heartbeat"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"error_count\": 0,\n  \"warning_count\": 0,\n  \"findings\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "traceability",
+      "command": [
+        "C:\\Users\\hani\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Heartbeat\\scripts\\traceability.py",
+        "--repo-root",
+        "C:\\Heartbeat"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"identifier_count\": 0,\n  \"finding_count\": 0,\n  \"report\": \"C:\\\\Heartbeat\\\\output\\\\traceability.json\"\n}",
       "stderr": ""
     }
   ]

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="heartbeat-demo" tests="3" failures="1" errors="0" skipped="0" timestamp="2026-07-14T08:28:47.632018+00:00">
+<testsuite name="heartbeat-demo" tests="5" failures="0" errors="0" skipped="0" timestamp="2026-07-15T06:08:29.032293+00:00">
   <properties>
-    <property name="pipeline_passed" value="false" />
+    <property name="pipeline_passed" value="true" />
   </properties>
   <testcase classname="heartbeat.pipeline" name="proposal_approval" time="0">
     <system-out>{
@@ -32,59 +32,33 @@
 }</system-out>
   </testcase>
   <testcase classname="heartbeat.pipeline" name="deployment_approval" time="0">
-    <failure message="Stage failed with return code 1" type="PipelineStageFailure">{
-  "file": "C:\\Heartbeat\\approvals\\deployment.json",
-  "valid": false,
-  "gate": "deployment",
-  "status": "PENDING",
-  "approver_name": null,
-  "approver_role": "Release / Deployment Authority",
-  "approved_at": null,
-  "expires_at": null,
-  "unverified_evidence": [
-    "Proposal approval is valid",
-    "Architecture approval is valid",
-    "Documentation validation passed",
-    "Traceability validation passed",
-    "QA plan is complete",
-    "Security review recommendation is acceptable",
-    "Local CI passed using act",
-    "Rollback approach is documented",
-    "No secrets or restricted data are present"
-  ],
-  "errors": [
-    "Gate is not approved: PENDING.",
-    "Approver name is missing.",
-    "approved_at is missing or invalid ISO-8601.",
-    "9 required evidence item(s) are not verified."
-  ]
-}</failure>
     <system-out>{
   "file": "C:\\Heartbeat\\approvals\\deployment.json",
-  "valid": false,
+  "valid": true,
   "gate": "deployment",
-  "status": "PENDING",
-  "approver_name": null,
+  "status": "APPROVED",
+  "approver_name": "Hani Shtayyeh",
   "approver_role": "Release / Deployment Authority",
-  "approved_at": null,
+  "approved_at": "2026-07-14T10:00:00+03:00",
   "expires_at": null,
-  "unverified_evidence": [
-    "Proposal approval is valid",
-    "Architecture approval is valid",
-    "Documentation validation passed",
-    "Traceability validation passed",
-    "QA plan is complete",
-    "Security review recommendation is acceptable",
-    "Local CI passed using act",
-    "Rollback approach is documented",
-    "No secrets or restricted data are present"
-  ],
-  "errors": [
-    "Gate is not approved: PENDING.",
-    "Approver name is missing.",
-    "approved_at is missing or invalid ISO-8601.",
-    "9 required evidence item(s) are not verified."
-  ]
+  "unverified_evidence": [],
+  "errors": []
+}</system-out>
+  </testcase>
+  <testcase classname="heartbeat.pipeline" name="validate_documents" time="0">
+    <system-out>{
+  "valid": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "findings": []
+}</system-out>
+  </testcase>
+  <testcase classname="heartbeat.pipeline" name="traceability" time="0">
+    <system-out>{
+  "valid": true,
+  "identifier_count": 0,
+  "finding_count": 0,
+  "report": "C:\\Heartbeat\\output\\traceability.json"
 }</system-out>
   </testcase>
 </testsuite>
