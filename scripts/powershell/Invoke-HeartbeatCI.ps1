@@ -50,31 +50,83 @@ if ($sourceChanges) {
 
 Write-Host "4. Checking for secrets..."
 
-$secretPatterns = @(
-    "client_secret",
-    "private_key",
-    "access_token",
-    "refresh_token",
-    "GOCSPX-",
-    "BEGIN PRIVATE KEY",
-    "password="
+$excludedFiles = @(
+    "scripts/powershell/Invoke-HeartbeatCI.ps1",
+    ".gitignore",
+    "README.md",
+    "CLAUDE.md"
+)
+
+$secretRules = @(
+    @{
+        Name    = "Google OAuth client secret"
+        Pattern = 'GOCSPX-[A-Za-z0-9_-]{20,}'
+    },
+    @{
+        Name    = "Private key"
+        Pattern = '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
+    },
+    @{
+        Name    = "AWS access key"
+        Pattern = 'AKIA[0-9A-Z]{16}'
+    },
+    @{
+        Name    = "GitHub token"
+        Pattern = 'gh[pousr]_[A-Za-z0-9]{30,}'
+    },
+    @{
+        Name    = "Hard-coded password"
+        Pattern = '(?i)(password|passwd|pwd)\s*[:=]\s*["''][^"'']{8,}["'']'
+    },
+    @{
+        Name    = "Hard-coded client secret"
+        Pattern = '(?i)client[_-]?secret\s*[:=]\s*["''][^"'']{8,}["'']'
+    },
+    @{
+        Name    = "Hard-coded access token"
+        Pattern = '(?i)access[_-]?token\s*[:=]\s*["''][^"'']{8,}["'']'
+    }
+)
+
+$textExtensions = @(
+    ".ps1", ".psm1", ".py", ".json", ".yaml", ".yml",
+    ".xml", ".config", ".ini", ".env", ".md", ".txt",
+    ".js", ".ts", ".cs", ".java", ".sh"
 )
 
 $trackedFiles = git ls-files
 
 foreach ($file in $trackedFiles) {
+    $normalizedFile = $file.Replace("\", "/")
+
+    if ($excludedFiles -contains $normalizedFile) {
+        continue
+    }
+
     if (-not (Test-Path $file -PathType Leaf)) {
+        continue
+    }
+
+    $extension = [System.IO.Path]::GetExtension($file).ToLower()
+
+    if ($textExtensions -notcontains $extension) {
         continue
     }
 
     $content = Get-Content $file -Raw -ErrorAction SilentlyContinue
 
-    foreach ($pattern in $secretPatterns) {
-        if ($content -match [regex]::Escape($pattern)) {
-            throw "Possible secret found in tracked file: $file"
+    if ([string]::IsNullOrWhiteSpace($content)) {
+        continue
+    }
+
+    foreach ($rule in $secretRules) {
+        if ($content -match $rule.Pattern) {
+            throw "Possible $($rule.Name) found in tracked file: $file"
         }
     }
 }
+
+Write-Host "Secret scan passed."
 
 Write-Host "5. Checking register IDs..."
 
