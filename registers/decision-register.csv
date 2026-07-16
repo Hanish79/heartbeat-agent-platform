@@ -1,0 +1,9 @@
+decision_id,description,source_id,source_document,source_section,decision_basis,owner,decision_date,approval_status,notes
+DEC-0001,Demo scope is limited to JSON shipment requests only,SRC-0001,01_business_problem.md,Scope,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0002,"Production deployment, direct InfoAXS updates, customer authentication, pricing calculation, dangerous goods regulatory approval, and personally identifiable production data are excluded from the demo",SRC-0001,01_business_problem.md,Out of scope,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0003,The agent must never change a shipment automatically without a defined rule,SRC-0001,01_business_problem.md,Desired outcome,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0004,Uncertain cases must be routed for human review,SRC-0001,01_business_problem.md,Desired outcome,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0005,The agent must be stateless and exposed through an API,SRC-0002,02_stakeholder_notes.md,Architecture,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0006,Deterministic validation rules must remain separate from probabilistic AI recommendations,SRC-0002,02_stakeholder_notes.md,Architecture,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0007,No real customer or shipment data may be used in the demo,SRC-0002,02_stakeholder_notes.md,Security,Explicit - stated verbatim in source,,,Stated - no approval record found,
+DEC-0008,Every requirement must map to at least one test case,SRC-0002,02_stakeholder_notes.md,QA,Explicit - stated verbatim in source,,,Stated - no approval record found,

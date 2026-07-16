@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "google-drive": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-google-drive"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "C:\\path\\to\\your\\service-account-key.json",
+        "GOOGLE_DRIVE_FOLDER_ID": "your-folder-id-here"
+      }
+    }
+  }
+}
