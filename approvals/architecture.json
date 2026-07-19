@@ -1,60 +1,62 @@
-{
-  "schema_version": "1.0",
-  "gate": "architecture",
-  "title": "Architecture Approval",
-  "status": "approved",
-  "decision": "Proceed with the Shipment Validation API demo",
-  "approver": {
-    "name": "Hani Shtayyeh",
-    "role": "Architecture Review Authority"
-  },
-  "approved_at": "2026-07-14T10:00:00+03:00",
-  "expires_at": null,
-  "scope": "Shipment Validation API demo only",
-  "evidence": [
-    {
-      "id": 1,
-      "name": "Proposal approval is valid",
-      "required": true,
-      "verified": true
-    },
-    {
-      "id": 2,
-      "name": "Architecture scope is documented",
-      "required": true,
-      "verified": true
-    },
-    {
-      "id": 3,
-      "name": "Interfaces and trust boundaries are documented",
-      "required": true,
-      "verified": true
-    },
-    {
-      "id": 4,
-      "name": "Security review is complete",
-      "required": true,
-      "verified": true
-    },
-    {
-      "id": 5,
-      "name": "Operational implications are documented",
-      "required": true,
-      "verified": true
-    },
-    {
-      "id": 6,
-      "name": "Architecture decisions and exceptions are recorded",
-      "required": true,
-      "verified": true
-    }
-  ],
-  "conditions": [],
-  "comments": "",
-  "audit": {
-    "created_by": "Heartbeat Agent Platform",
-    "created_at": "2026-07-12",
-    "last_updated_by": "",
-    "last_updated_at": null
-  }
+﻿{
+    "schema_version":  "1.0",
+    "gate":  "architecture",
+    "title":  "Architecture Approval",
+    "status":  "pending",
+    "decision":  "Proceed with the Shipment Validation API demo",
+    "approver":  {
+                     "name":  "Hani Shtayyeh",
+                     "role":  "Architecture Review Authority"
+                 },
+    "approved_at":  "",
+    "expires_at":  null,
+    "scope":  "Shipment Validation API demo only",
+    "evidence":  [
+                     {
+                         "id":  1,
+                         "name":  "Proposal approval is valid",
+                         "required":  true,
+                         "verified":  true
+                     },
+                     {
+                         "id":  2,
+                         "name":  "Architecture scope is documented",
+                         "required":  true,
+                         "verified":  true
+                     },
+                     {
+                         "id":  3,
+                         "name":  "Interfaces and trust boundaries are documented",
+                         "required":  true,
+                         "verified":  true
+                     },
+                     {
+                         "id":  4,
+                         "name":  "Security review is complete",
+                         "required":  true,
+                         "verified":  true
+                     },
+                     {
+                         "id":  5,
+                         "name":  "Operational implications are documented",
+                         "required":  true,
+                         "verified":  true
+                     },
+                     {
+                         "id":  6,
+                         "name":  "Architecture decisions and exceptions are recorded",
+                         "required":  true,
+                         "verified":  true
+                     }
+                 ],
+    "conditions":  [
+
+                   ],
+    "comments":  "",
+    "audit":  {
+                  "created_by":  "Heartbeat Agent Platform",
+                  "created_at":  "2026-07-12",
+                  "last_updated_by":  "",
+                  "last_updated_at":  null
+              }
 }
