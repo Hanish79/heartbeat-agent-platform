@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "gate": "deployment",
   "title": "Deployment Approval",
-  "status": "APPROVED",
+  "status": "approved",
   "decision": "Approved for GitHub Actions validation and evidence generation",
   "approver": {
     "name": "Hani Shtayyeh",

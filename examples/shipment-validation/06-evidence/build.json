@@ -1,0 +1,73 @@
+{
+  "artifact_type": "build_evidence",
+  "demo": "Shipment Validation API",
+  "generation_date": "2026-07-19",
+  "artifact_status": "Draft - evidence for demo purposes only, not yet approved",
+  "artifact_owner": null,
+  "traceability": {
+    "source_documents": ["SRC-0003", "SRC-0001", "SRC-0002"],
+    "requirements_doc": "examples/shipment-validation/02-requirements/requirements.md",
+    "requirements_approval": "approvals/requirements.json (approved, Hani Shtayyeh, 2026-07-14T10:00:00+03:00)",
+    "architecture_doc": "examples/shipment-validation/03-architecture/architecture.md",
+    "architecture_approval": "approvals/architecture.json (approved, Hani Shtayyeh, 2026-07-14T10:00:00+03:00)",
+    "development_dir": "examples/shipment-validation/04-development",
+    "testing_dir": "examples/shipment-validation/05-testing"
+  },
+  "environment": {
+    "python_version": "3.14.6",
+    "platform": "win32",
+    "install_method": "isolated virtual environment created for this build/test run, not committed to the repository"
+  },
+  "dependency_deviation": {
+    "occurred": true,
+    "description": "requirements.txt originally pinned fastapi==0.115.0, pydantic==2.9.2, uvicorn==0.30.6, httpx==0.27.2, pytest==8.3.3. Installation failed: pydantic-core had no prebuilt wheel for Python 3.14 at that version and this machine has no C/Rust build toolchain (link.exe not found) to compile it from source. requirements.txt was updated to the latest versions that installed and tested successfully.",
+    "action_taken": "requirements.txt updated to match actually-installed, actually-tested versions",
+    "flagged_for_review": true
+  },
+  "installed_dependencies": {
+    "fastapi": "0.139.2",
+    "pydantic": "2.13.4",
+    "pydantic_core": "2.46.4",
+    "uvicorn": "0.51.0",
+    "httpx": "0.28.1",
+    "pytest": "9.1.1",
+    "starlette": "1.3.1",
+    "anyio": "4.14.2"
+  },
+  "build_steps": [
+    {
+      "step": "Create isolated virtual environment",
+      "result": "success"
+    },
+    {
+      "step": "pip install -r examples/shipment-validation/04-development/requirements.txt (original pins)",
+      "result": "failed",
+      "detail": "pydantic-core wheel build failed on Python 3.14 (no linker available)"
+    },
+    {
+      "step": "pip install fastapi pydantic uvicorn httpx pytest (unpinned, latest compatible)",
+      "result": "success"
+    },
+    {
+      "step": "requirements.txt updated to installed versions",
+      "result": "success"
+    },
+    {
+      "step": "pytest examples/shipment-validation/05-testing/ -v",
+      "result": "success",
+      "detail": "9 passed, 0 failed, 1 deprecation warning, 0.22s"
+    }
+  ],
+  "test_summary": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "warnings": 1,
+    "duration_seconds": 0.22
+  },
+  "notes": [
+    "No commit or push was performed as part of this build, per build instructions.",
+    "No source documents were modified.",
+    "No approval files were modified or bypassed by this build step."
+  ]
+}

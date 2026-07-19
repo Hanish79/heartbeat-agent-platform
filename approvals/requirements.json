@@ -1,0 +1,8 @@
+{
+  "approval_type": "requirements",
+  "artifact": "examples/shipment-validation/02-requirements/requirements.md",
+  "status": "approved",
+  "approved_by": "Hani Shtayyeh",
+  "approved_at": "2026-07-14T10:00:00+03:00",
+  "comments": "Approved for architecture design."
+}
