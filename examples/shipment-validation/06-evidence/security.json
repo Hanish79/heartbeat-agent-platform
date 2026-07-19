@@ -1,0 +1,82 @@
+{
+  "artifact_type": "security_evidence",
+  "demo": "Shipment Validation API",
+  "generation_date": "2026-07-19",
+  "artifact_status": "Draft - evidence for demo purposes only, not yet approved",
+  "artifact_owner": null,
+  "traceability": {
+    "primary_source": "examples/shipment-validation/01-business-input/business-request.md (unregistered - see build.json)",
+    "supporting_sources": ["SRC-0002"],
+    "architecture_doc": "examples/shipment-validation/03-architecture/architecture.md (Security assumptions)",
+    "requirements_doc": "examples/shipment-validation/02-requirements/requirements.md"
+  },
+  "automated_scans": [
+    {
+      "tool": "bandit",
+      "version_source": "installed via pip into project .venv for this run",
+      "scope": "examples/shipment-validation/04-development/app",
+      "lines_scanned": 120,
+      "findings_high": 0,
+      "findings_medium": 0,
+      "findings_low": 0,
+      "result": "no findings"
+    },
+    {
+      "tool": "pip-audit",
+      "scope": "examples/shipment-validation/04-development/requirements.txt",
+      "dependencies_checked": 21,
+      "known_vulnerabilities_found": 0,
+      "result": "no known vulnerabilities"
+    }
+  ],
+  "manual_review_findings": [
+    {
+      "id": "SEC-01",
+      "topic": "Authentication",
+      "finding": "No authentication or authorization is implemented. Confirmed consistent with source: customer authentication is explicitly out of scope per business-request.md.",
+      "risk": "Not suitable for exposure outside a controlled demo environment.",
+      "source": "business-request.md (Out of scope), architecture.md (Security assumptions)"
+    },
+    {
+      "id": "SEC-02",
+      "topic": "Data sensitivity",
+      "finding": "No real customer or shipment data may be used, per SRC-0002. This is a procedural control, not enforced in code (the application performs no PII detection).",
+      "risk": "Relies on operator discipline; not technically enforced.",
+      "source": "SRC-0002 (Security note)"
+    },
+    {
+      "id": "SEC-03",
+      "topic": "External dependencies / attack surface",
+      "finding": "The service makes no outbound calls (no InfoAXS integration exists in this phase) and has no persistence layer, minimizing attack surface.",
+      "risk": "Low, in current scope.",
+      "source": "architecture.md (Context, Security assumptions)"
+    },
+    {
+      "id": "SEC-04",
+      "topic": "Input handling",
+      "finding": "All inbound fields are validated by Pydantic type coercion plus explicit business-rule checks (BR-01-BR-08) before use; no dynamic code execution, file access, or SQL/command construction occurs anywhere in the application code.",
+      "risk": "Low.",
+      "source": "app/validation.py, app/models.py"
+    },
+    {
+      "id": "SEC-05",
+      "topic": "Secrets and credentials",
+      "finding": "The application requires no secrets, API keys, or credentials, since it has no external integrations in this phase.",
+      "risk": "None identified.",
+      "source": "architecture.md (Security assumptions)"
+    },
+    {
+      "id": "SEC-06",
+      "topic": "Source governance",
+      "finding": "The primary source document for this build (business-request.md) is not registered in registers/source-register.csv, so the security review itself rests on an ungoverned input.",
+      "risk": "Low direct security impact, but a process/traceability gap.",
+      "source": "requirements.md Gap identified, architecture.md R-06"
+    }
+  ],
+  "known_gaps": [
+    "This review is limited to static analysis (bandit) and dependency vulnerability lookup (pip-audit) plus manual read-through. No dynamic testing (DAST), fuzzing, or penetration testing was performed - explicitly out of scope per business request (no performance/production testing).",
+    "PII/data-sensitivity control (SEC-02) is procedural only and unverified by tooling.",
+    "Primary source document is unregistered (SEC-06)."
+  ],
+  "not_yet_approved": true
+}

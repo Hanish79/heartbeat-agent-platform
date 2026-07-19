@@ -2,7 +2,7 @@
     "schema_version":  "1.0",
     "gate":  "architecture",
     "title":  "Architecture Approval",
-    "status":  "pending",
+    "status":  "approved",
     "decision":  "Proceed with the Shipment Validation API demo",
     "approver":  {
                      "name":  "Hani Shtayyeh",
