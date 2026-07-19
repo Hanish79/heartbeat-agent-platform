@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: heartbeat-postgres
+    environment:
+      POSTGRES_DB: heartbeat
+      POSTGRES_USER: heartbeat
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - heartbeat_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U heartbeat -d heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    container_name: heartbeat-adminer
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8081:8080"
+
+volumes:
+  heartbeat_postgres_data:

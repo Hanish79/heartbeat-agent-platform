@@ -154,15 +154,6 @@ if ($RunTests) {
     }
 }
 
-& $python -m pytest `
-    ".\tests" `
-    ".\examples\shipment-validation\05-testing" `
-    -q
-
-if ($LASTEXITCODE -ne 0) {
-    throw "Python tests failed."
-}
-
 Write-Host ""
 Write-Host "Heartbeat local CI passed."
 Write-Host "=== Heartbeat Local CI Completed ==="

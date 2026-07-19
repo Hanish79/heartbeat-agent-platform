@@ -1,0 +1,3 @@
+#!/bin/sh
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/powershell/Invoke-HeartbeatCI.ps1
+exit $?

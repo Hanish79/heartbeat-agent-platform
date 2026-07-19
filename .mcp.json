@@ -1,14 +1,11 @@
 {
   "mcpServers": {
     "google-drive": {
-      "type": "stdio",
-      "command": "${GOOGLE_DRIVE_MCP_COMMAND}",
-      "args": [
-        "${GOOGLE_DRIVE_MCP_ARG_1}"
-      ],
-      "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}",
-        "GOOGLE_DRIVE_FOLDER_ID": "${GOOGLE_DRIVE_FOLDER_ID}"
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "oauth": {
+        "clientId": "1026183616972-1k06m0o7gm4onko28bpfc0l75qmjr6al.apps.googleusercontent.com",
+        "callbackPort": 8080
       }
     }
   }
