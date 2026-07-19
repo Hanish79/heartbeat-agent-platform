@@ -46,9 +46,11 @@ Command: `scripts\powershell\Invoke-HeartbeatCI.ps1`
 | 3. Source immutability check (git diff vs HEAD on documents/01-raw-source-documents) | Passed — no changes detected |
 | 4. Secret scan across tracked files | Passed — no matches |
 | 5. Register existence check (source, action, decision, risk, artifact registers) | Passed — all 5 registers present |
-| 6. Python test suite (`tests/`, `examples/shipment-validation/05-testing/`) | Passed — 13 passed, 1 deprecation warning, 0.12s |
+| 6. Python test suite (`tests/`, `examples/shipment-validation/05-testing/`) | Passed — 13 passed, 1 deprecation warning, 0.15s |
 
 Overall pipeline result: **PASSED** (`Heartbeat local CI passed.`)
+
+*(Re-run 2026-07-19: result unchanged from the prior run of this check — `documents/03-approved-outputs` is still empty and no artifact-register rows have moved out of `Draft - not reviewed`. The Python test suite still totals 13 passed; no artifact in `documents/03-approved-outputs` was affected either way.)*
 
 ## Related approval state
 
