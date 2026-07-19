@@ -9,3 +9,7 @@ docs/README.md
 ```
 
 The package is designed to be copied directly into the root of the demo GitHub repository.
+
+Local CI validation confirmed.
+
+Pre-commit hook execution confirmed.
