@@ -1,0 +1,4 @@
+﻿source_id,file_name,relative_path,file_type,size_bytes,modified_utc,sha256,status,review_status,owner,notes
+SRC-0001,01_business_problem.md,documents\01-raw-source-documents\01_business_problem.md,md,836,2026-07-16T10:28:32.819789+00:00,af062a49af6671aa94f928fa00cc84bf369bfaa6ee5e1e30c64075f8b33e12d9,Source,Not reviewed,,
+SRC-0002,02_stakeholder_notes.md,documents\01-raw-source-documents\02_stakeholder_notes.md,md,534,2026-07-16T10:28:32.819789+00:00,fe83f57a5a7c5360d07238a7d2371120b91cf2cc04497ea952f37b5262c35ecc,Source,Not reviewed,,
+SRC-0003,shipment-validation-business-request.md,documents\01-raw-source-documents\shipment-validation-business-request.md,md,1820,2026-07-19T09:17:11.782335+00:00,306616c3288f29ec8a11ebd92e6ee0a37f83ba87a10250dd7db9f5af4fbc9fe6,Source,Not reviewed,,
